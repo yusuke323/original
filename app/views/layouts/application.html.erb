@@ -1,15 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OriginApp</title>
+    <title>photo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="assets/stylesheets/magister.css">
+
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+
+    <%= stylesheet_link_tag    'magister', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'magister', 'modernizr.custom.72241', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to("TweetApp", "/posts/index") %>
+        <% else %>
+        <%= link_to "Home", "/", class: 'btn btn-success' %>
+        <% end %>
+      </div>
+
+      <nav class="mainmenu">
+        <div class="container">
+          <div class="dropdown">
+            <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          </div>
+        </div>
+      </nav>
+
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+          <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+          </li>
+          <!-- ログインしている状態でヘッダーに表示するHTMLを貼り付けてください -->
+          <li>
+          <%= link_to("投稿一覧", "/posts/index") %>
+          </li>
+          <li>
+          <%= link_to("新規投稿", "/posts/new") %>
+          </li>
+          <li>
+          <%= link_to("ユーザー一覧", "/users/index") %>
+          </li>
+          <li>
+          <!-- ログアウト用のリンクを追加してください -->
+          <li>
+          <%= link_to("Logout", "/logout", {method: :post}) %>
+          </li>
+        <% else %>
+          <!-- ログインしていない状態でヘッダーに表示するHTMLを貼り付けてください -->
+          <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li>
+              <%= link_to "Production", "production" %>
+            </li>
+            <li>
+              <%= link_to "Signup", "signup" %>
+            </li>
+            <li>
+              <%= link_to "Login", "login" %>
+            </li>
+          </ul>
+        <% end %>
+      </ul>
+    </header>
+    <!-- 指定されたHTMLを貼り付けてください -->
+    <!-- flash[:notice]に代入されたメッセージを表示してください -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice]%>
+      </div>
+    <% end %>
     <%= yield %>
+
+    <!-- Load js libs only when the page is loaded. -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="assets/javascripts/modernizr.custom.72241.js"></script>
+    <!-- Custom template scripts -->
+    <script src="assets/javascripts/magister.js"></script>
+
   </body>
 </html>
