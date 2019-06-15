@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>photo</title>
+    <title>TweetApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    #<link rel="stylesheet" href="assets/stylesheets/magister.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,7 +13,7 @@
     <header>
       <div class="header-logo">
         <% if @current_user %>
-          <%= link_to("TweetApp", "/posts/index") %>
+          <%= link_to("Home", "/posts/index") %>
         <% else %>
         <%= link_to "Home", "/", class: 'btn btn-success' %>
         <% end %>
@@ -28,43 +26,39 @@
           </li>
           <!-- ログインしている状態でヘッダーに表示するHTMLを貼り付けてください -->
           <li>
-          <%= link_to("投稿一覧", "/posts/index") %>
+            <%= link_to("投稿一覧", "/posts/index") %>
           </li>
           <li>
-          <%= link_to("新規投稿", "/posts/new") %>
+            <%= link_to("新規投稿", "/posts/new") %>
           </li>
           <li>
-          <%= link_to("ユーザー一覧", "/users/index") %>
+            <%= link_to("ユーザー一覧", "/users/index") %>
           </li>
           <li>
-          <!-- ログアウト用のリンクを追加してください -->
-          <li>
-          <%= link_to("Logout", "/logout", {method: :post}) %>
+            <%= link_to("Logout", "/logout", {method: :post}) %>
           </li>
         <% else %>
           <!-- ログインしていない状態でヘッダーに表示するHTMLを貼り付けてください -->
-          <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li>
-              <%= link_to "Production", "production" %>
-            </li>
-            <li>
-              <%= link_to "Signup", "signup" %>
-            </li>
-            <li>
-              <%= link_to "Login", "login" %>
-            </li>
-          </ul>
+          <li>
+            <%= link_to "Production", "production" %>
+          </li>
+          <li>
+            <%= link_to "Signup", "signup" %>
+          </li>
+          <li>
+            <%= link_to "Login", "login" %>
+          </li>
         <% end %>
       </ul>
     </header>
-    <!-- 指定されたHTMLを貼り付けてください -->
+
     <!-- flash[:notice]に代入されたメッセージを表示してください -->
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice]%>
       </div>
     <% end %>
+    
     <%= yield %>
   </body>
 </html>
