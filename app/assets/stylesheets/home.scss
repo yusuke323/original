@@ -38,11 +38,20 @@
   /* 共通レイアウト ================================ */
   body {
     color: #2d3133;
-    background-image: url("/body3.jpg");
+    background-image: url("/IMG_3329.JPG");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
     min-height: 1vh;
+    min-height:100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    line-height: 1.5em;
+    font-size:14px;
+    font-family: Helvetica, Arial, sans-serif;
+    color:#fff;
+    color:rgba(255,255,255,.8);
+    font-weight: normal;
   }
   
   .main {
@@ -52,13 +61,13 @@
     height: auto;
     min-height: 100%;
     background-color: #f5f8fa;
-    background-image: url("/body3.jpg");
+    background-image: url("/IMG_3329.JPG");
     background-repeat: no-repeat;
     background-size: cover;
   }
   
   .container {
-    max-width: 600px;
+    max-width: 720px;
     margin: 200px auto;
     padding-left: 15px;
     padding-right: 15px;
@@ -117,7 +126,103 @@
     margin: 0;
     font-size: 13px;
   }
+
+/********************************************************/
+/*             Sections - universal classes             */
+/********************************************************/
+.section {
+	z-index: 1;
+	min-height:420px;
+	width: 100%;
+	overflow:auto;
+	height:100%;
+	padding-top:100px;
+	padding-bottom:50px;
+	display:none;
+	top:0;
+}
+@media (min-width: 768px) {
+	.section { padding-top:15px;}
+}
+
+/* Show one of sections */
+#head {
+	display: block;
+}
+
+  /********************************************************/
+/*                      Typography                      */
+/********************************************************/
+  a { color:#fff; text-decoration: none; }
+  a:hover, a:active { color:#fff; text-decoration: underline; }
+  .lead { 
+    font-weight:normal;
+    font-size:1.5em;
+    line-height:1.2em;
+  }
   
+  .title,
+  .subtitle { 
+    font-family: 'cursive', cursive, Arial, sans-serif;
+    font-weight:normal;
+    font-size:7em;
+    margin-bottom:15px; 
+    color:#FDF9F4; 
+    line-height:1em;
+  }
+  .subtitle { 
+    line-height:0.9em;
+    font-size:4.0em;
+    margin-top:0;
+    margin-bottom:40px; 
+  }
+  .tagline { 
+    font-size:1.3em;
+    line-height:1.3em;
+    font-weight:normal;
+    margin-bottom:45px;
+  }
+
+  .word {
+    font-family: 'Times New Roman', serif, Arial, sans-serif;
+    font-size:2.3em;
+    line-height:2.6em;
+    font-weight:normal;
+  }
+  
+  @media (max-width: 767px) {
+    .lead { 
+      font-size:1.3em;
+    }
+  }
+
+
+/********************************************************/
+/*                   UI - Buttons                       */
+/********************************************************/
+.btn{
+	color:#333;
+	text-shadow: none;
+	text-decoration: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border:0 none;
+}
+.btn:hover {
+	color:#000;
+}
+.btn-lg {
+	padding:16px 30px;
+	font-size:inherit;
+}
+.btn-default {
+	background: rgba(255,255,255,.5);
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
+  background: rgba(255,255,255,.8);
+}  
+
   /* top ================================ */
   .top-main {
     padding: 200px 0 100px;
@@ -241,4 +346,3 @@
     border-radius: 0 0 2px 2px;
     font-size: 14px;
   }
-  

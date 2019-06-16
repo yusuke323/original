@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TweetApp</title>
+    <title>One Piece</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -26,22 +26,22 @@
           </li>
           <!-- ログインしている状態でヘッダーに表示するHTMLを貼り付けてください -->
           <li>
-            <%= link_to("投稿一覧", "/posts/index") %>
+            <%= link_to "Production", "production" %>
           </li>
           <li>
-            <%= link_to("新規投稿", "/posts/new") %>
+            <%= link_to("Post List", "/posts/index") %>
           </li>
           <li>
-            <%= link_to("ユーザー一覧", "/users/index") %>
+            <%= link_to("New Post", "/posts/new") %>
+          </li>
+          <li>
+            <%= link_to("User List", "/users/index") %>
           </li>
           <li>
             <%= link_to("Logout", "/logout", {method: :post}) %>
           </li>
         <% else %>
           <!-- ログインしていない状態でヘッダーに表示するHTMLを貼り付けてください -->
-          <li>
-            <%= link_to "Production", "production" %>
-          </li>
           <li>
             <%= link_to "Signup", "signup" %>
           </li>
