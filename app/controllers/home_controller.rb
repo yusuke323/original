@@ -9,4 +9,7 @@ class HomeController < ApplicationController
 
   def photolist
   end
+
+  def share
+  end
 end
