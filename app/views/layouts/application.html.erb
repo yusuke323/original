@@ -7,46 +7,57 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
     <header>
       <div class="header-logo">
         <% if @current_user %>
-          <%= link_to("Home", "/posts/index") %>
+          <li>
+            <a href = "/posts/index"><i class = "fa fa-home">   TOP</i></a>
+          </li>
         <% else %>
-        <%= link_to "Home", "/", class: 'btn btn-success' %>
+          <li>
+            <a href = "/"><i class = "fa fa-home"> TOP</i></a>
+          </li>
         <% end %>
       </div>
 
       <ul class="header-menus">
         <% if @current_user %>
+          <ul class = "dropmenu">
+            <li id = "myuser">
+              <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+              <ul>
+                <li id = "logout">
+                  <%= link_to("➡︎Logout", "/logout", {method: :post}) %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
           <li>
-          <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
-          </li>
-          <!-- ログインしている状態でヘッダーに表示するHTMLを貼り付けてください -->
-          <li>
-            <%= link_to "Production", "production" %>
-          </li>
-          <li>
-            <%= link_to("Post List", "/posts/index") %>
-          </li>
-          <li>
-            <%= link_to("New Post", "/posts/new") %>
-          </li>
-          <li>
-            <%= link_to("User List", "/users/index") %>
+            <a href = "/production"><i class="fa fa-info"> Production</i></a>
           </li>
           <li>
-            <%= link_to("Logout", "/logout", {method: :post}) %>
+          <a href = "/photolist"><i class="fa fa-camera"> Photolist</i></a>
           </li>
+          <li>
+            <a href = "/posts/index"><i class="fa fa-folder-open"> PostList</i></a>
+          </li>
+          <li>
+            <a href = "/posts/new"><i class="fa fa-folder-o"> PostNew</i></a>
+          </li>
+
         <% else %>
           <!-- ログインしていない状態でヘッダーに表示するHTMLを貼り付けてください -->
           <li>
-            <%= link_to "Signup", "signup" %>
+            <a href = "/signup"><i class="fa fa-frown-o"> Signup</i></a>
           </li>
           <li>
-            <%= link_to "Login", "login" %>
+            <a href = "/login"><i class = "fa fa-sign-in"> Login</i></a>
           </li>
         <% end %>
       </ul>
