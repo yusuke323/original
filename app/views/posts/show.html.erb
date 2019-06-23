@@ -14,6 +14,11 @@
           <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
         </div>
       <% end %>
+      <% if @post.image? %>
+      　<%= image_tag @post.image.thumb.url %>
+      <% else %>
+      　<%= image_tag 'noimage.gif' %>
+      <% end %>
     </div>
   </div>
 </div>

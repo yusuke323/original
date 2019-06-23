@@ -11,10 +11,15 @@
               <%= message %>
             </div>
           <% end %>
-          
-          <!-- 以下の<%= %>を用いて、初期値が表示されるようにしてください -->
-          <textarea name="content"></textarea>
-          <input type="submit" value="投稿">
+
+          <%= form_for("/posts/new") do |f| %>
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+
+            <textarea name="content"></textarea>
+            <input type="submit" value="投稿">
+            
+          <% end %>
         </div>
       </div>
     <% end %>

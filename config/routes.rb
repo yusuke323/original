@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'posts/index' => 'posts#index'
   get 'posts/new' => 'posts#new'
   get 'posts/:id' => 'posts#show'
+  get 'photolist' => 'posts#photolist'
   post 'posts/create' => 'posts#create'
   get 'posts/:id/edit' => 'posts#edit'
   post 'posts/:id/update' => 'posts#update'
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
 
   get '/' => 'home#top'
   get 'production' => 'home#production'
-  get 'photolist' => 'home#photolist'
   get 'share' => 'home#share'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
