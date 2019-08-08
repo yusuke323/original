@@ -55,21 +55,23 @@ body {
   text-align: center;
 }
 
-.main {
-  background-color: #f5f8fa;
-  background-image: url("/IMG_3329.JPG");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 50%;
-}
+// .main {
+//   background-color: #f5f8fa;
+//   background-image: url("/IMG_3329.JPG");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center 50%;
+// }
 
 .container {
-  max-width: 720px;
-  margin: 100px auto;
+  max-width: 1000px;
+  margin-top: 200px;
+  margin-left: 250px;
+  margin-right: 250px;
   padding-left: 15px;
   padding-right: 15px;
   clear: both;
-  position: absolute;
+//  position: absolute;
 }
 
 .container_2 {
@@ -298,7 +300,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
     padding: 60px;
     width: 400px;
     vertical-align:  middle;
-    }
+  }
   
   .production-main .registration {
     margin-bottom: 20px;
